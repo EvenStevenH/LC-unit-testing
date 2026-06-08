@@ -6,14 +6,20 @@ function calculateDiscount(price, discountRate) {
 
 function filterProducts(products, callback) {
 	if (!Array.isArray(products) || typeof callback !== "function") return [];
-	// TODO: Implement filtering logic
-	return "working";
+	return products.filter(callback);
 }
 
 function sortInventory(inventory, key) {
 	if (!Array.isArray(inventory) || typeof key !== "string") return [];
-	// TODO: Implement sorting logic
-	return [];
+	return inventory.sort((a, b) => (a[key] > b[key] ? 1 : -1));
 }
 
 module.exports = { calculateDiscount, filterProducts, sortInventory };
+
+console.log(
+	sortInventory([
+		{ name: "cup", quantity: 30 },
+		{ name: "pencil", quantity: 20 },
+		{ name: "pen", quantity: 40 },
+	]),
+);
