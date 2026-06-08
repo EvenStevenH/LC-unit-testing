@@ -15,29 +15,41 @@ describe("calculateDiscount", () => {
 });
 
 describe("filterProducts", () => {
-  it("should filter products correctly", () => {
-    expect(filterProducts(["apple", "pineapple", "banana"], (product) => product.toUpperCase()).toBe(["APPLE", "PINEAPPLE", "BANANA"]));
-  });
+	let products = ["apple", "pineapple", "banana"];
 
-  it("should handle a invalid callback", () => {
-    expect(filterProducts(["apple", "pineapple", "banana"], 3)).toBe([]);
-  });
+	it("should filter products correctly", () => {
+		expect(filterProducts(products, (product) => product.length > 6)).toEqual(["pineapple"]);
+	});
 
-  it("should handle an empty array", () => {
-    expect(filterProducts([], (product) => product.toUpperCase()).toBe([]));
-  });
+	it("should handle a invalid callback", () => {
+		expect(filterProducts(products, 3)).toEqual([]);
+	});
+
+	it("should handle an empty array", () => {
+		expect(filterProducts([], (product) => product.length > 6)).toEqual([]);
+	});
 });
 
 describe("sortInventory", () => {
-  it("should sort multiple items", () => {
-    expect(sortInventory(["cup", "phone", "book"]), "cup").toBe("cup");
-  });
+	const inventory = [
+		{ name: "cup", quantity: 30 },
+		{ name: "pencil", quantity: 20 },
+		{ name: "pen", quantity: 40 },
+	];
 
-  it("should attempt to sort with invalid key", () => {
-    expect(sortInventory(["cup", "phone", "book"], 3)).toBe([]);
-  });
+	it("should sort multiple items by key of quantity", () => {
+		expect(sortInventory(inventory, "quantity")).toEqual([
+			{ name: "pencil", quantity: 20 },
+			{ name: "cup", quantity: 30 },
+			{ name: "pen", quantity: 40 },
+		]);
+	});
 
-  it("should attempt to sort an empty array", () => {
-    expect(sortInventory([]), "cup").toBe([]);
-  });
+	it("should attempt to sort with invalid key", () => {
+		expect(sortInventory(inventory, 3)).toEqual([]);
+	});
+
+	it("should attempt to sort an empty array", () => {
+		expect(sortInventory([], "quantity")).toEqual([]);
+	});
 });
