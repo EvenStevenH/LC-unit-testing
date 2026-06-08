@@ -1,7 +1,7 @@
 function calculateDiscount(price, discountRate) {
-  if (typeof price !== "number" || typeof discountRate !== "number") return null;
-  if (discountRate < 0 || discountRate > 1) return null;
-  return price - discountRate * price;
+	if (typeof price !== "number" || typeof discountRate !== "number") return null;
+	if (discountRate < 0 || discountRate > 1) return null;
+	return price - discountRate * price;
 }
 
 function filterProducts(products, callback) {
@@ -15,11 +15,3 @@ function sortInventory(inventory, key) {
 }
 
 module.exports = { calculateDiscount, filterProducts, sortInventory };
-
-console.log(
-	sortInventory([
-		{ name: "cup", quantity: 30 },
-		{ name: "pencil", quantity: 20 },
-		{ name: "pen", quantity: 40 },
-	]),
-);
