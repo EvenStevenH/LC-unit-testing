@@ -1,0 +1,27 @@
+{
+	"name": "lc-unit-testing",
+	"version": "1.0.0",
+	"description": "This is the README.md file! I, as the presenter, will fill it with content!",
+	"main": "script.js",
+	"directories": {
+		"test": "test"
+	},
+	"scripts": {
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/EvenStevenH/LC-unit-testing.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/EvenStevenH/LC-unit-testing/issues"
+	},
+	"homepage": "https://github.com/EvenStevenH/LC-unit-testing#readme",
+	"devDependencies": {
+		"jest": "^30.4.2"
+	}
+}
