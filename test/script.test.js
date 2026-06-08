@@ -1,17 +1,17 @@
 const { calculateDiscount, filterProducts, sortInventory } = require("../script");
 
 describe("calculateDiscount", () => {
-	it("should applies a valid discount rate", () => {
-		expect(calculateDiscount(100, 0.1)).toBe(90);
-	});
+  it("should applies a valid discount rate", () => {
+    expect(calculateDiscount(100, 0.1)).toBe(90);
+  });
 
-	it("should handles an invalid discount rate gracefully", () => {
-		expect(calculateDiscount(100, -0.1)).toBe(null);
-	});
+  it("should handles an invalid discount rate gracefully", () => {
+    expect(calculateDiscount(100, -0.1)).toBe(null);
+  });
 
-	it("should handles edge case with price of 0", () => {
-		expect(calculateDiscount(0, 0.2)).toBe(0);
-	});
+  it("should handles edge case with price of 0", () => {
+    expect(calculateDiscount(0, 0.2)).toBe(0);
+  });
 });
 
 describe("filterProducts", () => {
